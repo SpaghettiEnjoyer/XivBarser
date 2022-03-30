@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "outDir": "./build/",
+    "module": "ES6",
+    "alwaysStrict": true,
+    "removeComments": true,
+    // Ensure that Babel can safely transpile files in the TypeScript project
+  },
+  "compileOnSave": true,
+  "include": ["src/**/*"]
+}

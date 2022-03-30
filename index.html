@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Montserrat&family=Exo&family=Red+Hat+Display&family=Roboto&family=Open+Sans
+          &family=Oswald&family=Archivo+Narrow
+          &display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.min.js" integrity="sha512-a0tGMh5o0nCoRDiMVaSmiWgB9s/JqfC+PQZHWANTzIhasvm5eH9NkWTmJ4WloaQWLT8fEzRBjvADgFNDf0WusQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.i18n/1.0.7/jquery.i18n.messagestore.min.js" integrity="sha512-/hv/2tE0W63ywFkKYwtnbYdBwlS+tjEw/TWvGD31awT1bbEliLB0G0akHicAUJVLPSCE6LVEnfdJy0lPkrauvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="https://ngld.github.io/OverlayPlugin/assets/shared/common.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.js" integrity="sha512-2iwCHjuj+PmdCyvb88rMOch0UcKQxVHi/gsAml1fN3eg82IDaO/cdzzeXX4iF2VzIIes7pODE1/G0ts3QBwslA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/benchmark/2.1.4/benchmark.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fast-sort@3.0.2/dist/sort.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="index.css">
+    
+    <!--<script src="components/table.js"></script>-->
+    <link rel="stylesheet" href="components/common.css">
+    <link rel="stylesheet" href="components/table.css">
+    <link rel="stylesheet" href="components/menu_bar.css">
+    <link rel="stylesheet" href="components/personal_stats.css">
+    <script src="dist/bundle.js"></script>
+  </head>
+  <body>
+    
+    <script>
+      console.log(window);
+      /*
+      addOverlayListener("TargetableEnemies", (e) => {
+        console.log(e);
+      })*/
+      barser = new XivBarser();
+      barser.addEventListener("haha");
+    </script>
+      <div id="menu-bar">
+        <div class="icon-wrapper button"><span id="history-icon" class="material-icons">menu_open</span></div>
+        <div id="encounter" class="button">
+          <div id="timer">
+            <span id="timer-min-sec">01:75</span>
+            <sup id="timer-milliseconds">98</sup>
+          </div>
+          <div class="ellipsis-wrapper"><span id="boss-name">Oracle of Darkness</span></div>
+          <div id="phase">
+            <span id="phase-label" data-i18n="phase-label"></span>
+            <span id="phase-number">1</span>
+          </div>
+          <div id="total-dps">
+            <span id="total-dps-value">123475.89</span>
+            <span id="total-dps-label" data-i18n="total-dps-label"></span>
+          </div>
+        </div>
+        <div class="icon-wrapper button"><span id="expand-compress-icon" class="material-icons compress" onclick="console.log(12);">credit_card</span></div>
+        <div class="icon-wrapper button" style="display: none;"><span id="presets-icon" class="material-icons">format_list_numbered</span></div>
+        <div class="icon-wrapper button" style="display: none;"><span id="settings-icon" class="material-icons">tune</span></div>
+      </div>
+
+      <div id="data-table"></div>
+
+      <div id="pstats">
+        <div id="pstats-header">
+          <span id="pstats-title", data-i18n="pstats-title"></span>
+          <div id="pstats-shortcut">
+            <span id="pstats-shortcut-value">12345.67</span>
+            <span id="pstats-shortcut-label" data-i18n="ndps"></span>
+          </div>
+          <div class="icon-wrapper button"><span id="pstats-filter-icon" class="material-icons none">filter_alt</span></div>
+          <div class="icon-wrapper button"><span id="pstats-compress-expand-icon" class="material-icons compress">expand_less</span></div>
+        </div>
+        <div id="pstats-data" class="stats-content">
+          <div id="pstats-metric" style="display: none;">
+            <span id="pstats-selected-metric" class="button" onclick="UserInteractions.toggleDropdown(this)">rDPS</span>
+            <div class="stats-metric-dropdown dropdown hide">
+              <span class="stats-metric-dropdown-item" data-i18n="rdps" onclick="UserInteractions.setPersonalStatsMetric(this, 'rdps')"></span>
+              <span class="stats-metric-dropdown-item" data-i18n="ndps" onclick="UserInteractions.setPersonalStatsMetric(this, 'ndps')"></span>
+            </div>
+            <span id="pstats-selected-metric-value">14578</span>
+            <span id="pstats-selected-metric-ranking">(14th/30)</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="encounter-stats" style="display: none;">
+        <div id="encounter-stats-header">
+          <span id="encounter-stats-title", data-i18n="encounter-stats-title"></span>
+          <span id="encounter-stats-rank-by-comp-icon" class="material-icons button">filter_alt</span>
+          <span id="encounter-stats-expand-compress-icon" class="material-icons button">expand_less</span>
+        </div>
+      </div>
+
+    <!--<textarea id="abilities" cols="200" rows="100"> </textarea>-->
+
+  </body>
+  
+</html>
